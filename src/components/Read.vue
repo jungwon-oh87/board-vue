@@ -1,9 +1,39 @@
 <template>
-  <div>Read component</div>
+  <div>
+    <table>
+      <tr>
+        <td>Author</td>
+        <td>Title</td>
+        <td>Content</td>
+      </tr>
+      <tr :key="index" v-for="(d,index) in data">
+        <td>{{d.author}}</td>
+        <td>{{d.title}}</td>
+        <td>{{d.content}}</td>
+      </tr>
+    </table>
+    <button v-on:click="write">Write Something</button>
+  </div>
 </template>
 
 <script>
-export default {};
+import data from "@/data";
+export default {
+  name: "Read",
+  methods: {
+    write() {
+      // console.log("write called");
+      this.$router.push({
+        path: "create",
+      });
+    },
+  },
+  data() {
+    return {
+      data: data,
+    };
+  },
+};
 </script>
 
 <style>
