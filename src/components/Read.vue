@@ -6,7 +6,7 @@
         <td>Title</td>
         <td>Content</td>
       </tr>
-      <tr :key="index" v-for="(d,index) in data">
+      <tr :key="index" v-for="(d,index) in data" @click="getDetail(index)">
         <td>{{d.author}}</td>
         <td>{{d.title}}</td>
         <td>{{d.content}}</td>
@@ -25,6 +25,14 @@ export default {
       // console.log("write called");
       this.$router.push({
         path: "create",
+      });
+    },
+    getDetail(index) {
+      this.$router.push({
+        name: "Detail",
+        params: {
+          contentId: index,
+        },
       });
     },
   },
