@@ -24,7 +24,7 @@ export default {
     editData() {
       // go to create
       this.$router.push({
-        name: "create",
+        name: "Create",
         params: {
           contentId: this.index,
         },

@@ -15,7 +15,7 @@ import data from "../data/";
 export default {
   name: "Create",
   data() {
-    const index = this.$router.params.contentId;
+    const index = this.$route.params.contentId;
     return {
       data: data,
       index: index,

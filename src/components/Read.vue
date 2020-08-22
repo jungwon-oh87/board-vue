@@ -24,7 +24,7 @@ export default {
     write() {
       // console.log("write called");
       this.$router.push({
-        path: "create",
+        path: "Create",
       });
     },
     getDetail(index) {
