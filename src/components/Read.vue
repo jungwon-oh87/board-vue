@@ -1,17 +1,11 @@
 <template>
   <div>
-    <table>
-      <tr>
-        <td>Author</td>
-        <td>Title</td>
-        <td>Content</td>
-      </tr>
-      <tr :key="index" v-for="(d,index) in data" @click="getDetail(index)">
+    <b-table striped hover :items="data" @row-clicked="getDetail"></b-table>
+    <!-- <tr :key="index" v-for="(d,index) in data" @click="getDetail(index)">
         <td>{{d.author}}</td>
         <td>{{d.title}}</td>
         <td>{{d.content}}</td>
-      </tr>
-    </table>
+    </tr> -->
     <button v-on:click="write">Write Something</button>
   </div>
 </template>
@@ -24,25 +18,26 @@ export default {
     write() {
       // console.log("write called");
       this.$router.push({
-        path: "Create",
+        path: "Create"
       });
     },
-    getDetail(index) {
+    getDetail(row, index) {
+      //   console.log("row clicked!", row);
+      //   console.log("row clicked!", index);
       this.$router.push({
         name: "Detail",
         params: {
-          contentId: index,
-        },
+          contentId: index
+        }
       });
-    },
+    }
   },
   data() {
     return {
-      data: data,
+      data: data
     };
-  },
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>
