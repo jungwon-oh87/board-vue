@@ -1,12 +1,13 @@
 <template>
   <div>
-    <b-table striped hover :items="data" @row-clicked="getDetail"></b-table>
-    <!-- <tr :key="index" v-for="(d,index) in data" @click="getDetail(index)">
-        <td>{{d.author}}</td>
-        <td>{{d.title}}</td>
-        <td>{{d.content}}</td>
-    </tr> -->
-    <button v-on:click="write">Write Something</button>
+    <b-table
+      striped
+      hover
+      :items="data"
+      @row-clicked="getDetail"
+      :fields="fields"
+    ></b-table>
+    <b-button v-on:click="write">Write Something</b-button>
   </div>
 </template>
 
@@ -34,6 +35,11 @@ export default {
   },
   data() {
     return {
+      fields: [
+        { key: "author", label: "저자" },
+        { key: "title", label: "제목" },
+        { key: "content", label: "내용" }
+      ],
       data: data
     };
   }

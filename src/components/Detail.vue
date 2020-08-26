@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>{{dataa.author}}</div>
-    <div>{{dataa.title}}</div>
-    <div>{{dataa.content}}</div>
+    <div>{{ data.author }}</div>
+    <div>{{ data.title }}</div>
+    <div>{{ data.content }}</div>
     <button @click="editData()">Edit</button>
     <button @click="deleteData()">Delete</button>
   </div>
@@ -16,8 +16,8 @@ export default {
   data() {
     const index = this.$route.params.contentId;
     return {
-      dataa: data[index],
-      index: index,
+      data: data[index],
+      index: index
     };
   },
   methods: {
@@ -26,19 +26,18 @@ export default {
       this.$router.push({
         name: "Create",
         params: {
-          contentId: this.index,
-        },
+          contentId: this.index
+        }
       });
     },
     deleteData() {
       data.splice(this.index, 1);
       this.$router.push({
-        path: "/",
+        path: "/"
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

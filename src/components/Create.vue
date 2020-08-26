@@ -1,11 +1,12 @@
 <template>
   <div>
-    <input v-model="author" placeholder="author" type="text" />
-    <input v-model="title" placeholder="title" type="text" />
-    <textarea v-model="content" placeholder="content" />
-    <button
-      @click="index !== undefined ? update() : write()"
-    >{{index !== undefined ? "update" : "submit"}}</button>
+    <b-input v-model="author" placeholder="author" type="text" />
+    <b-input v-model="title" placeholder="title" type="text" />
+    <b-textarea v-model="content" placeholder="content" />
+    <b-button @click="index !== undefined ? update() : write()">{{
+      index !== undefined ? "update" : "submit"
+    }}</b-button>
+    <b-button @click="cancel">Cancel</b-button>
   </div>
 </template>
 
@@ -21,7 +22,7 @@ export default {
       index: index,
       author: index !== undefined ? data[index].author : "",
       title: index !== undefined ? data[index].title : "",
-      content: index !== undefined ? data[index].content : "",
+      content: index !== undefined ? data[index].content : ""
     };
   },
   methods: {
@@ -30,10 +31,10 @@ export default {
       this.data.push({
         author: this.author,
         title: this.title,
-        content: this.content,
+        content: this.content
       });
       this.$router.push({
-        path: "/",
+        path: "/"
       });
     },
     update() {
@@ -41,12 +42,16 @@ export default {
       data[this.index].title = this.title;
       data[this.index].content = this.content;
       this.$router.push({
-        path: "/",
+        path: "/"
       });
     },
-  },
+    cancel() {
+      this.$router.push({
+        path: "/"
+      });
+    }
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>
